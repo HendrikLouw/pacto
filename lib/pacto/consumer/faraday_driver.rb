@@ -5,7 +5,10 @@ module Pacto
       include Pacto::Logger
       # Sends a Pacto::PactoRequest
       def execute(req)
-        conn_options = { url: req.uri.site }
+        conn_options = { 
+            url: req.uri.site,
+            ssl: {verify: false}
+        }
         conn_options[:proxy] = Pacto.configuration.proxy if Pacto.configuration.proxy
         conn = Faraday.new(conn_options) do |faraday|
           faraday.response :logger if Pacto.configuration.logger.level == :debug
