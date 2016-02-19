@@ -36,6 +36,7 @@ module Pacto
           data['uri'] = contract.request.uri(request_values)
           data['body'] = example.request.body
           data['method'] = contract.request.http_method
+          data['headers'].merge! example.request.headers || {}
           Pacto::PactoRequest.new(data)
         else
           @fallback_actor.build_request contract, values
