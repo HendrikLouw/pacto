@@ -6,6 +6,7 @@ module Pacto
     attr_reader :http_method
     attr_reader :schema
     attr_reader :path
+    attr_reader :dynamic_path
     attr_reader :headers
     attr_reader :params
     attr_reader :pattern

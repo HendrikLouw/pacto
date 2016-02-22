@@ -15,6 +15,7 @@ module Pacto
           property :http_method, required: true
           property :schema, default: {}
           property :path, default: '/'
+          property :dynamic_path, default: nil
           property :headers, default: {}
           property :params, default: {}
         end

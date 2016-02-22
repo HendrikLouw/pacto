@@ -4,7 +4,7 @@ require 'hashie/mash'
 module Pacto
   class PactoRequest
     # FIXME: Need case insensitive header lookup, but case-sensitive storage
-    attr_accessor :headers, :body, :method, :uri
+    attr_accessor :headers, :body, :method, :uri, :dynamic_path
 
     include BodyParsing
 
@@ -14,6 +14,7 @@ module Pacto
       @body    = mash.body
       @method  = mash[:method]
       @uri     = mash.uri
+      @dynamic_path = mash.dynamic_path
       normalize
     end
 
