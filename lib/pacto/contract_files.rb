@@ -7,7 +7,7 @@ module Pacto
 
       if  full_path.directory?
         all_json_files = "#{full_path}/**/*.json"
-        Dir.glob(all_json_files).map do |f|
+        Dir.glob(all_json_files).sort.map do |f|
           Pathname.new(f)
         end
       else
