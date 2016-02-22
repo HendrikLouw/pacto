@@ -50,7 +50,7 @@ module Pacto
 
     def reenact(contract, data = {})
       request = build_request contract, data
-      response = driver.execute request
+      response = driver.execute request, contract
       [request, response]
     end
 
