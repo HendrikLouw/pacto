@@ -111,9 +111,13 @@ module Pacto
 
         def generate_schema(body, generator_options = Pacto.configuration.generator_options)
           return if body.nil? || body.empty?
-
-          body_schema = @schema_generator.generate @source, body, generator_options
-          MultiJson.load(body_schema)
+          begin
+              JSON.parse(body)  
+              body_schema = @schema_generator.generate @source, body, generator_options
+              return MultiJson.load(body_schema)
+          rescue JSON::ParserError => e  
+              return {}
+          end 
         end
 
         def clean(data)

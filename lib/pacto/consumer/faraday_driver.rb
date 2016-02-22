@@ -3,7 +3,7 @@ module Pacto
   class Consumer
     class FaradayDriver
       include Pacto::Logger
-      # Sends a Pacto::PactoRequest
+
       def execute(req)
         conn_options = { 
             url: req.uri.site,

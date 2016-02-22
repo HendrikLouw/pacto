@@ -35,6 +35,7 @@ module Pacto
       desc 'Validates all contracts in a given directory against a given host'
       task :validate, :host, :dir do |_t, args|
         opts = args.to_hash
+        puts opts
         dir = opts.delete :dir
         run(:validate, dir, opts)
       end
